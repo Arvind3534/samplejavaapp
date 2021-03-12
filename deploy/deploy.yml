@@ -9,4 +9,4 @@
             echo "No Service found"
          fi
     - name: deploy app
-      command: kubectl service create --name mysvc --replicas 2 -p 9080:8080 arvind3534/sampleapp:{{ build }}
+      command: kubectl create service --name mysvc --replicas 2 -p 9080:8080 arvind3534/sampleapp:{{ build }}
