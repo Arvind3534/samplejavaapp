@@ -8,7 +8,7 @@ pipeline{
     environment{
     registry = "arvind3534/declarative-demo"
     registryCredential = 'docker-creds'
-    dockerImage = ' '
+    dockerImage = ''
     }
     stages{
         stage('compile'){
@@ -39,9 +39,7 @@ pipeline{
 	 stage('Building image') {
       steps{
         sh 'cd $WORKSPACE'
-        script {
-          dockerImage = build registry + ":$BUILD_NUMBER"
-        }
+        sh 'docker build -f Dockerfile -t $registry:$BUILD_NUMBER .
       }
     }
         
