@@ -15,16 +15,9 @@ pipeline{
          }
         stage('junit'){
             steps{
-                echo 'unittest..'
-	            sh script: '/opt/apache-maven-3.6.3/bin/mvn test'
+                 junit 'target/surefire-reports/*.xml'
             }
-            post {
-               success {
-                   junit 'target/surefire-reports/*.xml'
-               }
-
-            }
-
+            
         }
     }
 }
