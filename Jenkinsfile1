@@ -1,4 +1,3 @@
-
 pipeline{
     agent{
        label 'java'
@@ -18,7 +17,12 @@ pipeline{
 	        steps {
                 echo 'unittest..'
 	            sh  'mvn test'
-                 }
+             }
+		  post {
+               success {
+                   junit 'target/surefire-reports/*.xml'
+               }
+           
 	   }
 	   stage('package'){
             steps{
@@ -28,11 +32,7 @@ pipeline{
             
          }
 	 
-         post {
-               success {
-                   junit 'target/surefire-reports/*.xml'
-               }
-           }
-
+        }
      }
 }
+
