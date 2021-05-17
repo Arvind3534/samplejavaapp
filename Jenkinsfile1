@@ -3,7 +3,8 @@ pipeline{
        label 'java'
     }
     tools{
-    maven 'maven-1' docker 'docker'
+    maven 'maven-1'
+    docker 'docker'
     }
     
     environment{
