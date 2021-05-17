@@ -39,7 +39,7 @@ pipeline{
 	 stage('Building image') {
       steps{
         sh 'cd $WORKSPACE'
-        sh 'docker build -f Dockerfile -t arvind3534/declarative-demo:$BUILD_NUMBER .
+        sh 'docker build -f Dockerfile -t arvind3534/declarative-demo:$BUILD_NUMBER .'
       }
     }
         
