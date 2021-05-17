@@ -14,13 +14,16 @@ pipeline{
             }
             
          }
-        stage('junit'){
-             post {
+        stage('unit-test') {
+	   steps {
+                echo 'unittest..'
+	            sh  'mvn test'
+                 }
+	   post {
                success {
                    junit 'target/surefire-reports/*.xml'
                }
-           }	
-            
+           }			
         }
     }
 }
