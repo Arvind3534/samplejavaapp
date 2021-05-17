@@ -1,12 +1,17 @@
-pipeline {
-    agent { label 'java' }
+pipeline{
+    agent{
+        label 'java' 
+    }
+    environment{
+        PATH = "/opt/maven/apache-maven-3.6.3/bin:$PATH"
+    }
+    stages{
+        stage('build'){
+            steps{
+                sh "mvn clean"
 
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn --version'
             }
+
         }
-        
     }
 }
