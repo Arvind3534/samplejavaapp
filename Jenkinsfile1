@@ -14,12 +14,12 @@ pipeline{
             }
             
          }
-        stage('unit-test') {
+        stage('unit-test'){
 	        steps {
                 echo 'unittest..'
 	            sh  'mvn test'
                  }
-	   
+	   }
 	   stage('package'){
             steps{
                 sh "mvn clean package"
@@ -27,6 +27,7 @@ pipeline{
             }
             
          }
+	 
          post {
                success {
                    junit 'target/surefire-reports/*.xml'
