@@ -1,8 +1,12 @@
 pipeline {
-    agent any
+    agent { label 'java' }
+
     stages {
-        stage('compile') {
-			steps {
-                echo 'compiling..'
-				git url: 'https://github.com/lerndevops/DevOpsClassCodes'
-				bat label: '', script: 'mvn compile'
+        stage('Build') {
+            steps {
+                sh "mvn clean"
+            }
+        }
+        
+    }
+}
