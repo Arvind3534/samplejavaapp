@@ -5,6 +5,9 @@ pipeline{
     tools{
     maven 'maven-1'
     }
+    tools{
+    docker 'docker'
+    }
     environment{
     registry = "arvind3534/declarative-demo"
     registryCredential = 'docker-creds'
