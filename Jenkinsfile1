@@ -60,7 +60,7 @@ pipeline{
 	
      stage('Deploy container to docker host') {
     	 steps{
-	sh "ansible-playbook test.yml"
+	ansiblePlaybook credentialsId: 'ansible-prv', disableHostKeyChecking: true, installation: 'ansible', inventory: 'web.inv', playbook: 'test.yml'
 		}
 	}
      
