@@ -57,6 +57,14 @@ pipeline{
 		sh "docker rmi $registry:$BUILD_NUMBER"
 		}
 	}
+	
+     stage('Deploy container to docker host') {
+    	 steps{
+	sh "su - arvind"
+        sh "ansible-playbook test.yml"
+		}
+	}
+     
      }
 }
 
