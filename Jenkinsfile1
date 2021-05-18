@@ -60,8 +60,7 @@ pipeline{
 	
      stage('Deploy container to docker host') {
     	 steps{
-	sh "su - arvind"
-        sh "ansible-playbook test.yml"
+	sh "ansible-playbook test.yml"
 		}
 	}
      
