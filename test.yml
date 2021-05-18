@@ -1,0 +1,7 @@
+---
+- hosts: web
+  become: true
+  name: "create new container"
+  tasks:
+   - name: "create docker container"
+     shell: docker run -itd --name arvind-container -p 9000:8080 arvind3534/declarative-demo:latest
